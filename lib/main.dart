@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:provider/single_child_widget.dart';
-
-import './screens/main-home.dart';
-import 'providers/providers.dart';
+import 'package:solesmates/routes/router.dart';
+import 'package:solesmates/routes/routes.dart';
+import 'package:solesmates/themes/colours.dart';
+import 'package:solesmates/utils/app_providers.dart';
+import 'package:solesmates/utils/config.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
@@ -15,17 +16,26 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: _providers,
+      providers: [
+        ChangeNotifierProvider.value(value: ProvProducts()),
+        ChangeNotifierProvider<Cart>(create: (_) => Cart()),
+      ],
       child: MaterialApp(
-        title: 'Flutter Demo',
+        // disable test banner
+        debugShowCheckedModeBanner: false,
+        // app name
+        title: AppConfig.appName,
+        // app theme
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: AppColours.primaryColour,
           visualDensity: VisualDensity.adaptivePlatformDensity,
-          scaffoldBackgroundColor: Color(0XFFf7f7f7),
-          appBarTheme: AppBarTheme(
+          scaffoldBackgroundColor: const Color(0XFFf7f7f7),
+          appBarTheme: const AppBarTheme(
             elevation: 0,
             color: Color(0XFFf7f7f7),
             iconTheme: IconThemeData(
@@ -33,14 +43,12 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
-        home: MainHome(),
+       
+        //make flutter aware of app routes using router generator in router.dart file
+        onGenerateRoute: generateRoute,
+
+        initialRoute: mainScreenRoute,
       ),
     );
-  }
-
-  List<SingleChildWidget> get _providers {
-    return [
-      ChangeNotifierProvider.value(value: ProvProducts()),
-    ];
   }
 }

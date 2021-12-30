@@ -1,9 +1,0 @@
-export 'w-category-item.dart';
-export 'w-title-appbar.dart';
-export 'w-icon-fav.dart';
-export 'w-my-divider.dart';
-export 'w-rating-start.dart';
-export 'w-product-card.dart';
-export 'w-badge-item.dart';
-export 'w-indicator-carousel.dart';
-export 'w-badge-item.dart';
