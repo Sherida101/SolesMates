@@ -1,5 +1,7 @@
 # Soles Mates
 
+## ![developer](https://img.shields.io/badge/Developed%20By%20%3A-Sherida%20Providence-blue) | [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://buymeacoffee.com/asptechinc)
+
 ## Demo
 
 <a href='https://github.com/o1298098/Flutter-Movie/releases/download/demo/demo.apk'>Download</a>
