@@ -10,7 +10,7 @@ Star ⭐ the repo if you like what you see😉.
 
 ### Design
 
-![design](design/design.PNG)
+![design](screenshots/design.png)
 
 A new Flutter project.
 
